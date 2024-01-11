@@ -19,7 +19,11 @@ class Task extends Model
     protected $fillable = [
         'title',
         'content',
+        'is_done',
         'owner_id',
+        'project_id',
+        'scheduled_at',
+        'due_at',
     ];
 
     /**
@@ -27,7 +31,9 @@ class Task extends Model
      *
      * @var array<int, string>
      */
-    protected $hidden = [];
+    protected $hidden = [
+        'updated_at'
+    ];
 
     /**
      * The attributes that should be cast.
@@ -35,6 +41,7 @@ class Task extends Model
      * @var array<string, string>
      */
     protected $casts = [
+        'is_done' => 'boolean',
         'due_at' => 'datetime',
         'scheduled_at' => 'datetime',
     ];

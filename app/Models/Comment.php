@@ -18,11 +18,17 @@ class Comment extends MorphPivot
         'content',
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'owner_id');
     }
 
+    /**
+     * @return MorphTo
+     */
     public function commentable(): MorphTo
     {
         return $this->morphTo();

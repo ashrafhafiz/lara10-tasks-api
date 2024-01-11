@@ -1,0 +1,213 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Tasks-API",
+    "dateExported": "2024-01-11T14:54:59.471Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b4acad43-ed45-4ff5-83df-40aeb22fd70a",
+            "colId": "ecd8ed70-c93b-4d6b-a26d-39fac565ef0f",
+            "containerId": "",
+            "name": "List all Tasks",
+            "url": "http://lara10-tasks-api.test/api/tasks",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-01-11T11:46:12.794Z",
+            "modified": "2024-01-11T14:25:12.151Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d5755d43-9e0f-45a7-8a4e-e8a65ac2aae1",
+            "colId": "ecd8ed70-c93b-4d6b-a26d-39fac565ef0f",
+            "containerId": "",
+            "name": "List Tasks wPagination",
+            "url": "http://lara10-tasks-api.test/api/tasks?page=2",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2024-01-11T14:25:03.324Z",
+            "modified": "2024-01-11T14:25:03.324Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "e68e8394-3bff-4707-871f-3d57be435877",
+            "colId": "ecd8ed70-c93b-4d6b-a26d-39fac565ef0f",
+            "containerId": "",
+            "name": "List Tasks wFilter",
+            "url": "http://lara10-tasks-api.test/api/tasks?filter[is_done]=false ",
+            "method": "GET",
+            "sortNum": 17500,
+            "created": "2024-01-11T14:25:36.988Z",
+            "modified": "2024-01-11T14:50:32.580Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "filter[project_id]",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "filter[owner_id]",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "filter[is_done]",
+                    "value": "false ",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "da29372d-267a-4af5-89d5-fc2d8dcd62af",
+            "colId": "ecd8ed70-c93b-4d6b-a26d-39fac565ef0f",
+            "containerId": "",
+            "name": "List Tasks wSort",
+            "url": "http://lara10-tasks-api.test/api/tasks?sort=owner_id,title",
+            "method": "GET",
+            "sortNum": 18750,
+            "created": "2024-01-11T14:51:27.479Z",
+            "modified": "2024-01-11T14:54:01.001Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "sort",
+                    "value": "title",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "sort",
+                    "value": "owner_id",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "sort",
+                    "value": "owner_id,title",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "24a03693-15b0-4319-abe6-9b20a4bd6246",
+            "colId": "ecd8ed70-c93b-4d6b-a26d-39fac565ef0f",
+            "containerId": "",
+            "name": "Show Task",
+            "url": "http://lara10-tasks-api.test/api/tasks/61",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-01-11T12:14:10.604Z",
+            "modified": "2024-01-11T13:42:09.866Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "551662d4-de2d-41fb-abff-5afb934d27ef",
+            "colId": "ecd8ed70-c93b-4d6b-a26d-39fac565ef0f",
+            "containerId": "",
+            "name": "Create Task",
+            "url": "http://lara10-tasks-api.test/api/tasks",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-11T12:21:27.176Z",
+            "modified": "2024-01-11T13:31:15.058Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\" : \"Task by Ashraf\",\n  \"content\" : \"content\",\n  \"owner_id\" : 2,\n  \"project_id\" : 3\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5da58651-caf7-46aa-98a8-5482804a688d",
+            "colId": "ecd8ed70-c93b-4d6b-a26d-39fac565ef0f",
+            "containerId": "",
+            "name": "Update Task",
+            "url": "http://lara10-tasks-api.test/api/tasks/63",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-01-11T13:41:30.204Z",
+            "modified": "2024-01-11T13:48:51.004Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"title\" : \"Task 63 again by Ashraf\",\n    \"content\" : \"content of task 63\",\n    \"is_done\" : true\n  }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2619bda3-3ff4-4bc1-97ea-fe712f770eab",
+            "colId": "ecd8ed70-c93b-4d6b-a26d-39fac565ef0f",
+            "containerId": "",
+            "name": "Delete Task",
+            "url": "http://lara10-tasks-api.test/api/tasks/61",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-01-11T14:12:13.166Z",
+            "modified": "2024-01-11T14:15:23.340Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
