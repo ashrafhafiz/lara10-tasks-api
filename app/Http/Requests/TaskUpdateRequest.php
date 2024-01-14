@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -28,7 +30,14 @@ class TaskUpdateRequest extends FormRequest
             'is_done' => 'sometimes|boolean',
             'content' => 'nullable',
             'owner_id' => 'sometimes|required',
-            'project_id' => 'sometimes|required',
+            'project_id' => [
+                'sometimes', 'required',
+                // 'exists:projects,id'
+                // The task updated by the project owner
+                Rule::exists('projects', 'id')->where(function ($query) {
+                    $query->where('owner_id', Auth::id());
+                })
+            ],
         ];
     }
 

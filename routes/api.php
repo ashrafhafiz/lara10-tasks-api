@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +28,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // PUT|PATCH       api/tasks/{task} ......... tasks.update › TaskController@update
 // DELETE          api/tasks/{task} ......... tasks.destroy › TaskController@destroy
 // GET|HEAD        api/tasks/{task}/edit .... tasks.edit › TaskController@edit
-Route::resource('/tasks', TaskController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::resource('/tasks', TaskController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
+    Route::resource('/projects', ProjectController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
+});
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);

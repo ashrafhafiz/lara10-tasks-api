@@ -2,13 +2,11 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class TaskStoreRequest extends FormRequest
+class ProjectUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,17 +24,8 @@ class TaskStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:255',
-            'content' => 'nullable',
-            // 'owner_id' => 'required',
-            'project_id' => [
-                'required',
-                // 'exists:projects,id'
-                // The task updated by the project owner
-                Rule::exists('projects', 'id')->where(function ($query) {
-                    $query->where('owner_id', Auth::id());
-                })
-            ],
+            'title' => 'sometimes|required|max:255',
+            'description' => 'sometimes|nullable',
         ];
     }
 
@@ -54,8 +43,8 @@ class TaskStoreRequest extends FormRequest
         return [
             'title.required' => 'The title is a required field.',
             'title.max' => 'The title shouldn\'t exceed 255 characters',
-            'owner_id.required' => 'The owner id is required field',
-            'project_id.required' => 'The project id is required field',
+            // 'owner_id.required' => 'The owner id is required field',
+            // 'project_id.required' => 'The project id is required field',
         ];
     }
 }

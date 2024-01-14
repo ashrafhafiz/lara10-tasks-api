@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function memberships(): BelongsToMany
     {
-        return $this->belongsTo(Project::class)->using(Member::class);
+        return $this->belongsToMany(Project::class, Member::class);
     }
 
     public function comments(): HasMany
